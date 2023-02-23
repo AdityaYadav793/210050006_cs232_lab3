@@ -1,0 +1,1 @@
+./part_c < input | tail -1 
