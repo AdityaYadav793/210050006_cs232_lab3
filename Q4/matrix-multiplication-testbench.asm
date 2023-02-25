@@ -45,6 +45,19 @@ main:
 
 ; ; TODO - Fill code for allocating the matrix into memory, you may use either the stack or heap for this purpose
 ; ; Start of your code
+        mov rax, 9
+        mov rdi, 0
+        mov rsi, [r1]
+        mov rbx, [c1]
+        imul rsi, rbx
+        shl rsi, 3
+        mov rdx, 3
+        mov r8, -1
+        mov r9, 0
+        mov r10, 34
+        syscall
+        mov [a1], rax
+
 ; ; End of your code
 
         call read_64
@@ -55,6 +68,19 @@ main:
 
 ; ; TODO - Fill code for allocating the matrix into memory, you may use either the stack or heap for this purpose
 ; ; Start of your code
+        mov rax, 9 ; addr
+        mov rdi, 0 ; fd
+        mov rsi, [r2]
+        mov rbx, [c2]
+        imul rsi, rbx
+        shl rsi, 3 ; length
+        mov rdx, 3 ; prot
+        mov r8, -1 ; flags
+        mov r9, 0 ; prot ??
+        mov r10, 34 ; offset
+        syscall
+        mov [a2], rax
+
 ; ; End of your code
 
         mov rax, [c1]                  ; Validity check if matrices can be multiplied
@@ -68,6 +94,19 @@ main:
 
 ; ; TODO - Fill code for allocating the matrix into memory, you may use either the stack or heap for this purpose
 ; ; Start of your code
+        mov rax, 9
+        mov rdi, 0
+        mov rsi, [r3]
+        mov rbx, [c3]
+        imul rsi, rbx
+        shl rsi, 3
+        mov rdx, 3
+        mov r8, -1
+        mov r9, 0
+        mov r10, 34
+        syscall
+        mov [a3], rax
+
 ; ; End of your code
 
 ; Matrix Input format - row major one number at a time for mat1 followed by mat2 !!

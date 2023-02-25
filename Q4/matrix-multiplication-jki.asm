@@ -21,6 +21,42 @@ matrix_mult:
 ; ; TODO - Fill your code here performing the matrix multiplication in the following order
 ; ; for j in range(c2) { for k in range(c1) { for i in range(r1) { mat3[i][j] += mat1[i][k]*mat2[k][j] } } }
 
+        mov r11, 0
+        loop1:
+                mov r12, 0
+                loop2:
+                        mov r13, 0
+                        loop3:
+                                mov r14, r11
+                                imul r14, rsi
+                                mov rax, r14
+                                add r14, r13
+                                shl r14, 3
+
+                                mov r15, r13
+                                imul r15, r8
+                                add r15, r12
+                                shl r15, 3
+
+                                add rax, r12
+                                shl rax, 3
+
+                                mov rbx, [rdi+r14]
+                                imul rbx, [rcx+r15]
+                                add [r10+rax], rbx
+
+                                inc r13
+                                cmp r13, rsi
+                                jne loop3
+
+                        inc r12
+                        cmp r12, rdx
+                        jne loop2
+
+                inc r11
+                cmp r11, r9
+                jne loop1
+
 ; ; End of code to be filled
 
         pop r13
